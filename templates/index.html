@@ -26,7 +26,8 @@
                     <option value="en">en</option>
                     <option value="es">es</option>
                 </select>
-                <input id="speed" type="range" min=".05" max="1" step=".05"/>
+                <input id="speed" type="number" value="30"/>
+		<input type="checkbox" label="next image" id="next_image" value="false"/>
             </div>
             <div class="block" id="new_article">
                 <button onclick="grabNewArticle();" name="new_article"> New article </button>

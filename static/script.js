@@ -28,13 +28,13 @@ function draw() {
         getJson();
     } else {
             var textSpeed = document.getElementById('speed').value;
+            var next_image = document.getElementById('next_image').checked;
             currentLanguage = language;
-            language = document.getElementById('language-selector').value;
             curr_time = new Date().getTime() / 1000;
             deltaTime = curr_time - time;
             var canvas = document.getElementById('Wikipedia');
-                        
-            
+            var img = new Image();
+			img.src = window.variable[n] 
             if(canvas.getContext){
                 //Set up canvas
                                 
@@ -46,7 +46,9 @@ function draw() {
                 
                 
                 //Render wikipedia text
-                if((deltaTime) > (.1 / textSpeed)) {
+                if(deltaTime > textSpeed || next_image == true) {
+					document.getElementById('next_image').checked = false;
+					console.log(deltaTime)
                     //clear canvas and set it to size of the window
                     width = $( window ).width();
                     width = width - (width * .01);
@@ -66,7 +68,10 @@ function draw() {
                     ctx.font = font;
                     ctx.textAlign = 'center';
                     ctx.fillStyle = "#e5e5e5"
-                    ctx.fillText(window.variable[n], x, y);
+                    if (img.height > height) {
+                        img.height = height - 50;
+                    }
+					ctx.drawImage(img, (width / 2) - (img.width / 2), (height / 2) - (img.height / 2));
                     n++;
                     time = new Date().getTime() / 1000;
             }
@@ -79,16 +84,13 @@ function draw() {
 function getJson() {
     if(language == "en") {
         var url = 'http://127.0.0.1:5000/grab_article_en';
-    } else if(language == "es") {
-        var url = 'http://127.0.0.1:5000/grab_article_es';
-    }
-        
+    }         
     $.getJSON(url,
     function(data, textStatus, jqXHR) {
         window.variable = data;
         window.sidebar = document.getElementById('sidebar');
         document.getElementById("article_title").innerHTML= data[0];
-        document.getElementById("link_to_article").href = "https://en.wikipedia.org/wiki/Special:Search?search=" + data[0];
+        document.getElementById("link_to_article").href = data[0];
         draw();
     }
     
