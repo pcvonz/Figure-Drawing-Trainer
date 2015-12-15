@@ -1,0 +1,10 @@
+beautifulsoup4==4.4.1
+docutils==0.12
+Flask==0.10.1
+Flask-SSLify==0.1.5
+itsdangerous==0.24
+Jinja2==2.8
+MarkupSafe==0.23
+requests==2.8.1
+six==1.9.0
+Werkzeug==0.11.2

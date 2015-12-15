@@ -11,7 +11,7 @@ var currentLanguage = "en";
 //Button to grab new article.
 var new_article = false;
 
-function draw() {    
+function draw() {
     //If current index is undefined then the end of the article has been reached.
     //Grab another article.
     if(window.variable[n] == undefined) {
@@ -34,17 +34,17 @@ function draw() {
             deltaTime = curr_time - time;
             var canvas = document.getElementById('Wikipedia');
             var img = new Image();
-			img.src = window.variable[n] 
+			img.src = window.variable[n]
             if(canvas.getContext){
                 //Set up canvas
-                                
+
                 var ctx = canvas.getContext('2d');
-               
+
                 //get window height
                 var x = canvas.width / 2;
                 var y = canvas.height / 2;
-                
-                
+
+
                 //Render wikipedia text
                 if(deltaTime > textSpeed || next_image == true) {
 					document.getElementById('next_image').checked = false;
@@ -57,14 +57,14 @@ function draw() {
                     canvas.height = height;
                     canvas.style.width = width;
                     canvas.style.height = height;
-                    
+
                     //Set the canvas background to black
                     ctx.fillRect(0, 0, width, height)
-                    
-                    
+
+
                     //Calculate appropriate font size
                     font = ($( window ).width() / 10).toString() + "px sans";
-                    
+
                     ctx.font = font;
                     ctx.textAlign = 'center';
                     ctx.fillStyle = "#e5e5e5"
@@ -80,11 +80,11 @@ function draw() {
     }
 }
 
-//Grabs wikipedia article from flask server
+//Grabs images
 function getJson() {
     if(language == "en") {
         var url = 'http://127.0.0.1:5000/grab_article_en';
-    }         
+    }
     $.getJSON(url,
     function(data, textStatus, jqXHR) {
         window.variable = data;
@@ -93,7 +93,7 @@ function getJson() {
         document.getElementById("link_to_article").href = data[0];
         draw();
     }
-    
+
 )
 };
 

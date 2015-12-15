@@ -15,7 +15,13 @@ canvas#Wikipedia {
     width:300px;
     right: 300px;
 }*/
-
+#toggle {
+  height: 20%;
+  float:left;
+  position:absolute;
+  backgound-color: white;
+  left:
+}
 #sidebar {
     position:absolute;
     background-color: black;
