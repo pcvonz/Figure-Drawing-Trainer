@@ -1,36 +1,37 @@
 <!DOCTYPE html>
 
 <head>
-    <title>SWiki</title>
+    <title>Figure Drawing Trainer</title>
     <link href="../static/style.css" rel="stylesheet">
 </head>
 <body>
     <script src="../static/jquery-2.1.4.js"></script>
     <script src="../static/script.js"></script>
 
-    <canvas id="Wikipedia"></canvas>
+    <canvas id="Trainer"></canvas>
 
-    <div id="sidebar">
-            <a id="link_to_article" href="something"> <img src="/static/images/wikipedia_logo.svg"> <h1 id="article_title"></h1></a>
+        <div id="sidebar">
+          +++
+          <div id="sidebar_inner">
+            <a id="link_to_article" href="something"> <h1 id="article_title"></h1></a>
 
             <div class="container-left">
                 <div class="menu">
-                    Language
-                    <br />
                     Speed
-
                 </div>
             </div>
             <div class="container-right">
-                <select id="language-selector">
-                    <option value="en">en</option>
-                    <option value="es">es</option>
-                </select>
+
                 <input id="speed" type="number" value="30"/>
-		<input type="checkbox" label="next image" id="next_image" value="false"/>
+                <br>
+                <input name="url" label="url" id="url_form" value="http://cor.gi"/>
+                <br>
+                <button onclick="getJson();" name="Scrape"> Scrape! </button>
+                <br>
+                Next Image
+                <input type="checkbox" label="next image" id="next_image" value="false"/>
             </div>
-            <div class="block" id="new_article">
-                <button onclick="grabNewArticle();" name="new_article"> New article </button>
-            </div>
-    </div>
+          </div>
+        </div>
+
 </body>
