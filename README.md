@@ -1,5 +1,7 @@
 Web application for use in figure drawing practice. It's basically an image slide show.
+
 to run:
+
 in a terminal:
 
 1. pip install requirements.txt
