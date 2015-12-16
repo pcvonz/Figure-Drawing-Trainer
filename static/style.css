@@ -5,40 +5,43 @@ html {
 body {
     overflow: hidden;
 }
-canvas#Wikipedia {
+canvas#Trainer {
     float:right;
 }
 
-/*#relative_sidebar {
-    position: relative;
-    background-color: white;
-    width:300px;
-    right: 300px;
-}*/
-#toggle {
-  height: 20%;
-  float:left;
-  position:absolute;
-  backgound-color: white;
-  left:
+
+#sidebar_inner h1 {
+  font-size: 15px;
 }
 #sidebar {
-    position:absolute;
-    background-color: black;
-    transition:property: left-background-color;
-    transition-duration: 1s;
-    float: left;
-    height:100%;
-    left:-300px;
-    width:301px;
+  background-color: white;
+  position: fixed;
+  top: 0px;
+  left: 0;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
 }
-
+#sidebar_inner {
+  background-color: white;
+  position: fixed;
+  top: 0px;
+  left: -200px;
+  width: 200px;
+  height: 100%;
+  font-size: 15px;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+}
 #sidebar:hover {
-    transition-property: left, background-color;
-    transition-duration:1s;
-    background-color: white;
-    left:0px;
+  background-color: white;
+  left: 200px;
 }
+#sidebar:hover #sidebar_inner {
+  left: 0;
 
 h1 {
     font: 20px "Linux Libertine O", serif;
@@ -48,7 +51,7 @@ h1 {
 }
 
 .container-left {
-    width:30%;
+    width:50%;
     float:left;
     text-align: right;
 }
